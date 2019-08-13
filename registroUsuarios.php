@@ -80,36 +80,7 @@
         
     </footer>
 
-     <script>
-
-        function comenzar(){
-
-            document.getElementById("vovler").addEventListener("click",volverInicio,false);
-
-        }
-
-        function volverInicio(){
-
-            <?php 
-
-                echo "Hola";
-             ?>
-
-        }
-        
-        
-
-        //window.addEventListener("load",comenzar,false);
-
-        $(document).ready(function(){
-
-            document.getElementById("vovler").addEventListener("click",volverInicio,false);
-
-
-
-        });
-
-    </script>
+     
 
 </body>
  
