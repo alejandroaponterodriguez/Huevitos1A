@@ -1,0 +1,89 @@
+#titulos{
+
+	width:300px;
+	height:80px;
+	margin:0 auto;
+	color:#6CBF0B;
+	margin-top:20px;
+	margin-bottom:5px;
+	
+	
+}
+
+h1{
+	font-size:30px;
+	text-align:center;
+	font-family: "Arial";
+}
+
+h2{
+	font-size:25px;
+	text-align:center;
+	font-family: "Arial";
+}
+
+#contenedor{
+
+	border:1px solid black;
+	width:400px;
+	height:440px;
+	margin:0 auto;
+	background-color:#6CBF0B;
+	border-radius:20px;
+
+}
+
+article{
+
+	width:200px;
+	height:150px;
+	margin:10px auto;
+	margin-bottom:20px;
+}
+
+article img{
+
+	width:200px;
+	height:150px;
+	margin:0 auto;
+	border-radius:10px;
+
+}
+
+
+input{
+	margin-bottom:5px;
+	width:200px;
+	height:25px;
+	font-size:16px;
+}
+
+.btngeneral{
+	
+	width:80px;
+	height:30px;
+	
+	
+	
+}
+
+#registro{
+	float: none;
+	text-align:center;
+	
+}
+
+table{
+	margin:0 auto;
+	
+}
+
+td label{
+	float:right;
+	
+}
+
+
+#pie{
+	text-align: center;
+}

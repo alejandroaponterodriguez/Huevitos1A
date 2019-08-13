@@ -1,0 +1,51 @@
+
+h1, h2{
+	text-align: center;
+	color:#6CBF0B;
+	font-family:"Arial";
+	font-size:25px;
+}
+
+#contenedor{
+
+	border-radius:20px;
+	border:1px solid black;
+	margin:8px auto;
+	background-color: #6CBF0B;
+	width: 300px;
+	height:450px;
+}
+
+
+#ima1{
+
+	width:100px;
+	margin:50px auto;
+}
+
+#bot{
+  	text-align: center;
+   }
+
+#pie{
+	text-align: center;
+}
+
+
+form{
+	text-align:center;
+	
+}
+
+.botones{
+
+	width:200px;
+	margin:0 auto;
+
+}
+
+form #submit{
+	
+	width:80px;
+	
+}

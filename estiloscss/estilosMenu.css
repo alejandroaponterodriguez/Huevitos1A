@@ -1,0 +1,108 @@
+#fondo{
+	
+		background-image: url("imagenes/fondo1.jpg") !important;
+
+}
+
+.contenedor{
+	
+	width:1000px;
+	height:650px;
+	padding-right:40px;
+	padding-top:26px;
+	
+	background-color:#33D4FF;
+	background-image:url("imagenes/fondoppal.png") !important;
+	border-radius: 10px;
+	margin:5px auto;
+	
+	}
+
+
+
+#nose{
+	padding: 0;
+	margin: 0;
+	font-family: "Arial";
+	/*box-sizing: border-box;*/
+
+}
+
+.tamano{
+
+	width:20px; 
+	height:20px;
+}
+
+/*.content{
+width: 100%;
+height: 100vh;
+background: #7a7a7a;
+display: flex;
+perspective: 50px;
+}*/
+
+/*BOTONES*/
+.btn{
+width: 300px;
+height: 40px;
+font-size: 24px;
+margin:0 auto;
+border-style: none;
+background-color: #6CBF0B;
+animation: btn-girar 0s;
+margin-left:20px;
+border-radius:10px;
+}
+
+/*BOTON EN MOVIMIENTO SISTEMA DE INFORMACION CISOFT1A*/
+.info{
+width: 400px;
+height: 40px;
+font-size: 20px;
+margin:0 auto;
+border-style: none;
+background: dodgerblue;
+animation: btn-girar 350s infinite;
+}
+
+/*BOTONES*/
+.btn:hover{
+background: rgb(180, 200, 190);
+transition: all 300ms;
+cursor: pointer;
+box-shadow: 0px 0px 20px  0px blue;
+}
+
+/*BOTONES*/
+.btn:active{
+	background: rgb(167, 226, 255);
+	transition: all 100ms;
+	color: black;
+	transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	-o-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+
+}
+/*BOTONES*/
+@keyframes btn-girar {
+	from{
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+	}
+
+	to{
+		transform: rotateY(5000deg);
+		-webkit-transform: rotateY(5000deg);
+		-o-transform: rotateY(5000deg);
+		-moz-transform: rotateY(5000deg);
+	}
+
+}
+
+
+
+
