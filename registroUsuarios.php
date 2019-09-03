@@ -7,6 +7,75 @@
     <link rel="stylesheet" type="text/css" href="estiloscss/estilosCssRegistrosUsuarios.css">
     <link rel="stylesheet" type="text/css" href="../jquery/jquery-3.4.1.js">
 
+<script type="text/javascript">
+
+    function comenzar(){
+
+        document.datos_usuario.addEventListener("invalid",validar,true);
+
+        document.getElementById("registrar").addEventListener("click",enviar,false);
+
+        document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
+
+        document.getElementById('volver').addEventListener("clic",volverPaginaInicial,false);
+
+
+    }
+
+    function validar(e){
+
+        var elementos = e.target;
+
+        if(elementos){
+
+        elementos.style.background = "#F5ABAB";
+
+        }
+
+    }
+
+    function enviar(){
+
+        var correcto = document.datos_usuario.checkValidity();
+
+        if(correcto){
+
+            document.datos_usuario.submit();
+        }
+    }
+
+    function validar_tiempo_real(e){
+
+        var entradas = e.target;
+
+        if(entradas.validity.valid){
+
+            entradas.style.background="white";
+
+        }else{
+
+            entradas.style.background="#F5ABAB";
+        }
+
+    }
+
+    function volverPaginaInicial(){
+
+          
+            //Falta por resolver este problema del llamado del archivo ;)
+           
+           alert("Volver")
+
+
+        
+    }
+    
+    
+    window.addEventListener("load",comenzar,false);
+
+</script>
+
+
 
     
 </head>
@@ -27,41 +96,41 @@
 
     </article>
 
-	<form action="reglasNegocios/ingresosDatosII.php" method="post" id="registro">
+	<form action="reglasNegocios/ingresosDatosII.php" method="post" id="registro" name="datos_usuario">
 				
         <table>    
         <tr>
             
         <td><label >Usuario:&nbsp;</label></td>
         
-        <td><input name="usuario" type="text" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="10"></td>
+        <td><input name="usuario" pattern="[1-9]{10}" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="10" required></td>
         
         </tr>
 
         <tr>
         <td><label>E-mail:&nbsp;</label></td>
-        <td><input name="email" type="email" id="email" placeholder="e-mail" minlength="1" maxlength="50"></td>
+        <td><input name="email" type="email" id="email" placeholder="e-mail" minlength="1" maxlength="50" required></td>
         </tr>
         
         <tr>
         <td><label>Contraseña:&nbsp;</label></td>
         
-        <td><input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="20"></td>
+        <td><input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="20" required></td>
         </tr>
         
         <tr>
             <td><label>Repetir Contraseña:&nbsp;</label></td>
-            <td><input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="20"></td>
+            <td><input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="20" required></td>
         </tr>
                     
 
         </table>    
         <br>
         
-        <input type="submit" name="registrar" value="Registrar" class="btngeneral">
+        <input type="submit" name="registrar" value="Registrar" class="btngeneral" id="registrar">
         
         
-        <input type="button" name="volver" value="Volver" class="btngeneral" id="volver">
+        <input type="button"  id="volver" name="volver" value="Volver" class="btngeneral" >
         
        
 
