@@ -53,22 +53,21 @@
 
         
 
-        if(password.value == repepassword.value){
+        if(password.value !== repepassword.value){
 
-            alert(password.value);
-            alert(repepassword.value);
-
+            
             password.setCustomValidity("las contraseñas son diferentes, repitalas");
 
             password.style.background="#F5ABAB";
 
             repepassword.style.background="#F5ABAB";
+            
 
             
 
         }else{
 
-           /* password.setCustomValidity("");
+           password.setCustomValidity("");
 
             password.style.background="white";
 
@@ -82,12 +81,13 @@
             }
 
 
-        }*/
-         alert(password.value);
-            alert(repepassword.value);
+        }
+         
         
 
     }
+
+
 
     function validar_tiempo_real(e){
 
