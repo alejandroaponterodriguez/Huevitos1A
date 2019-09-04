@@ -5,33 +5,16 @@
 
 	
 
-	if(isset($_POST["usuario"]) && $_POST["usuario"]!="" && $_POST["usuario"]!=null ){
+	$usuario = $_POST["usuario"];
 
-			$usuario = $_POST["usuario"];
+	$email = $_POST["email"];
 
-	}else{
-
-			require("errorDeDatosRegistros.php");
-			exit();
-	}
+	$contrasena = $_POST["contrasena"];
+	
+	$repecontrasena = $_POST["repecontrasena"];
 	
 
-	if(isset($_POST["email"])){
-
-		$email = $_POST["email"];
-	}
-
-	if(isset($_POST["contrasena"])){
-
-		$contrasena = $_POST["contrasena"];
-	}
-
-	if(isset($_POST["repecontrasena"])){
-
-		$repecontrasena = $_POST["repecontrasena"];
-	}
-
-
+			
 	require("../conexionbbdd/conexionHuevitosbd.php");
 	
 
@@ -56,6 +39,8 @@
 	}else{
 
 		die("Error al insertar datos :" . $conexion->error);
+		require("errorDeDatosRegistros.php");
+				
 	}
 	
 

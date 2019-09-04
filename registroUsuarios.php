@@ -8,8 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../jquery/jquery-3.4.1.js">
 
 <script type="text/javascript">
+    var password;
+    var repepassword;
 
     function comenzar(){
+
+        password = document.getElementById("contrasena");
+        repepassword = document.getElementById("repecontrasena");
 
         document.datos_usuario.addEventListener("invalid",validar,true);
 
@@ -18,6 +23,8 @@
         document.getElementById("volver").addEventListener("click",volverPaginaInicial,false);
 
         document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
+
+        
 
         
     }
@@ -44,12 +51,41 @@
 
     function enviar(){
 
-        var correcto = document.datos_usuario.checkValidity();
+        
 
-        if(correcto){
+        if(password.value == repepassword.value){
 
-            document.datos_usuario.submit();
-        }
+            alert(password.value);
+            alert(repepassword.value);
+
+            password.setCustomValidity("las contraseñas son diferentes, repitalas");
+
+            password.style.background="#F5ABAB";
+
+            repepassword.style.background="#F5ABAB";
+
+            
+
+        }else{
+
+           /* password.setCustomValidity("");
+
+            password.style.background="white";
+
+            repepassword.style.background="white";
+
+            var correcto = document.datos_usuario.checkValidity();
+
+            if(correcto){
+
+                document.datos_usuario.submit();
+            }
+
+
+        }*/
+         alert(password.value);
+            alert(repepassword.value);
+        
 
     }
 
