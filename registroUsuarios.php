@@ -15,11 +15,19 @@
 
         document.getElementById("registrar").addEventListener("click",enviar,false);
 
+        document.getElementById("volver").addEventListener("click",volverPaginaInicial,false);
+
         document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
 
-        document.getElementById('volver').addEventListener("clic",volverPaginaInicial,false);
+        
+    }
 
+    function volverPaginaInicial(){
 
+          
+        document.location.href="index.php";
+
+        
     }
 
     function validar(e){
@@ -42,6 +50,7 @@
 
             document.datos_usuario.submit();
         }
+
     }
 
     function validar_tiempo_real(e){
@@ -59,16 +68,7 @@
 
     }
 
-    function volverPaginaInicial(){
-
-          
-            //Falta por resolver este problema del llamado del archivo ;)
-           
-           alert("Volver")
-
-
-        
-    }
+    
     
     
     window.addEventListener("load",comenzar,false);
@@ -130,7 +130,9 @@
         <input type="submit" name="registrar" value="Registrar" class="btngeneral" id="registrar">
         
         
-        <input type="button"  id="volver" name="volver" value="Volver" class="btngeneral" >
+        <button type="button" id="volver" name="volver" class="btngeneral">Volver</button> 
+       
+        
         
        
 
@@ -141,7 +143,7 @@
 
        <br>
        
-            <div id="pie">Sistema de regstro individual del personal</div>
+            <div id="pie">Sistema de registro individual del personal</div>
     
 </section> 
 

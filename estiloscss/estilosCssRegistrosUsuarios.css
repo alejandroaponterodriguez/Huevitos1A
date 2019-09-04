@@ -60,7 +60,8 @@ input{
 
 .btngeneral{
 	
-	width:80px;
+
+	width:100px;
 	height:30px;
 	
 	
@@ -86,4 +87,16 @@ td label{
 
 #pie{
 	text-align: center;
+}
+
+#volver{
+
+	font-size:16px;
+	
+}
+
+#registrar{
+
+	font-size:16px;
+	
 }
