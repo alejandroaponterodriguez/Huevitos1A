@@ -6,6 +6,25 @@
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="estiloscss/estilosCssRecuperarcontrasena.css">
 
+
+<script>
+  function comenzar(){
+
+    document.getElementById('volver').addEventListener("click",volver,false);
+
+
+  }
+
+  function volver(){
+
+    document.location.href="index.php";
+  }
+
+  window.addEventListener("load",comenzar,false);
+
+</script>
+
+
 </head>
 
 <body>
@@ -21,15 +40,44 @@
   					
   	<form action="consulta.php" method="post">
                  
-      <p><label>Numero De Identificacion:</label></p>
-      <input name="contrasenia" type="text" id="contrasenia" placeholder="Numero De Identificacion" required="" autofocus="true" class="botones"> 
+      <table>
+        
+        <tr>
+          <td><label>Número De Identificación:</label></td>
+          <td>
+            <input name="btnidentificacion" type="text" id="btnidentificacion" placeholder="Numero De Identificacion" required="" autofocus="true" class="botones">
+          </td>
+        </tr>
+        
+        <tr>
+          <td><label>Correo Electrónico:</label></td>
+          <td>
+            <input name="email" type="email" id="email" placeholder="Correo de verificacion" required="" class="botones">
+          </td>
+        </tr>
+        
+        <tr>
+          <td id="entradas" colspan="2">
+            
+            
+              
+              <input type="submit" id="submit" name="submit" value="Validar" class="btncontrol">
+              <input type="button" name="volver" id="volver" value="Volver" class="btncontrol">
 
-      <p><label>Correo Electronico:</label></p>
-      <input name="contrasenia" type="email" id="Contrasenia" placeholder="Correo de verificacion" required="" class="botones"> 
+            
+             
+
+          </td>
+          
+        </tr>
+        
+
+      </table>
+         
+      
       
       <br>
-      <br>
-      <input type="submit" id="submit" name="submit" value="Validar" class="botones">   
+        
 
       </form>
 
