@@ -24,19 +24,19 @@
 			<figure id="ima1">
 				<img src="imagenes/huevitos1A.jpg" alt="Huevitos1A" id="imagen1">	
 			</figure>
-			<form action="" method="Post">
+			<form action="reglasNegocios/verificarUsuario.php" method="Post" name="formularioPrincipal">
 				<table id="formulario">
 					
 				
 				<tr>
 					<td class="espacio">
-						<input type="text" name="nickname" id="nickname" placeholder="usuario" autofocus="true" class="tamanno">&nbsp;<img src="imagenes/imagenUsuarios.jpg" id="imagenNick" >
+						<input type="text" name="nickname" id="nickname" placeholder="usuario" autofocus="true" class="tamanno" pattern="[1-9].{6,}">&nbsp;<img src="imagenes/imagenUsuarios.jpg" id="imagenNick" >
 					</td>
 					
 				</tr>
 				<tr>
 					<td class="espacio">
-						<input type="password" name="password" id="password" placeholder="password" class="tamanno">&nbsp;<img src="imagenes/imagenPasswordNo.png" id="imagenPasswordNo" >
+						<input type="password" name="password" id="password" placeholder="password" class="tamanno" minlength="8" maxlength="20" required>&nbsp;<img src="imagenes/imagenPasswordNo.png" id="imagenPasswordNo" >
 					</td>
 				</tr>
 					
