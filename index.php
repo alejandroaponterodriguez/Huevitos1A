@@ -6,7 +6,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="resetHuevitos1A.css">
 	<link rel="stylesheet" type="text/css" href="estiloscss/estilosCssHuevitos1A.css">
-	<script src="acceso.js"></script>
+	<script src="reglasNegocios/acceso.js"></script>
 
 		
 </head>
