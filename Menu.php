@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Menu PrincipalL</title>
+	<title>Menu Principal</title>
 
 	<link rel="stylesheet" type="text/css" href="estiloscss/resetHuevitos1A.css">
 	<link rel="stylesheet" type="text/css" href="estiloscss/estilosMenu.css">
