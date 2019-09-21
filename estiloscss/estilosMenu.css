@@ -1,7 +1,16 @@
-body #fondo{
+#fondo{
 	
-		background-image: url("imagenes/fondo1.jpg");
+	background-image:url("../imagenes/fondo1.jpg");
+	background-size:100%;
 
+	
+}
+
+#control{
+	
+	width:803px;
+	margin:0 auto;
+	
 }
 
 .contenedor{
@@ -10,11 +19,10 @@ body #fondo{
 	height:650px;
 	padding-right:40px;
 	padding-top:26px;
-	
-	background-color:#33D4FF;
-	background-image:url("imagenes/fondoppal.png");
+	margin:5px auto;	
+	background-image:url("../imagenes/fondoppal.png");
+	background-size:100%;
 	border-radius: 10px;
-	margin:5px auto;
 	
 	}
 
@@ -49,7 +57,7 @@ height: 40px;
 font-size: 24px;
 margin:0 auto;
 border-style: none;
-background-color: #6CBF0B;
+background-color:#CAF6F8;
 animation: btn-girar 0s;
 margin-left:20px;
 border-radius:10px;

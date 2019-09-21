@@ -34,7 +34,9 @@
 
 				$conexion->close();
 
-				require("../Menu.php");
+
+				header('location:../Menu.php');
+
 
 			}else{
 

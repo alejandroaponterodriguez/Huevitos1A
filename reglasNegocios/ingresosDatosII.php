@@ -32,9 +32,10 @@
 
 	if($conexion->query($sqlInsertar)){
 
+		$conexion->close();
 		require("registroExitosos.php");
 
-		$conexion->close();
+		
 
 	}else{
 

@@ -2,15 +2,17 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>MENU PRINCIPAL</title>
+	<title>Menu PrincipalL</title>
+
 	<link rel="stylesheet" type="text/css" href="estiloscss/resetHuevitos1A.css">
 	<link rel="stylesheet" type="text/css" href="estiloscss/estilosMenu.css">
+
 </head>
 <body id="fondo">
+		
+		<section class="contenedor">
 
-		<section class="contenedor" >
-
-		<form action="#" method="POST">
+		<form action="#" method="POST" id="control">
 			<input type="button" class="info" value="SISTEMA DE INFORMACION CISOFT1A">
 			<input type="submit" value="BUSQUEDA">
 			<input type="text" name="nombre" placeholder="BUSCAR" required>	
@@ -57,6 +59,8 @@
 
 	
 	</section>
+
+
 
 </body>
 </html>
