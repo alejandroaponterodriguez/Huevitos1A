@@ -20,13 +20,13 @@
         
     }
 
-    function volverPaginaInicial(){
+    /*function volverPaginaInicial(){
 
           
         document.location.href="verificarUsuario.php";
 
         
-    }
+    }*/
 
     function validar(e){
 
@@ -44,27 +44,30 @@
 
         
 
-        if(password.value == "" ){
+        if(nickname.value == "" ){
+
+            
+            nickname.setCustomValidity("El campo usuario no debe estar vacio");
+
+            nickname.style.background="#F5ABAB";
+
+                       
+
+        }else if(password.value == ""){
 
             
             password.setCustomValidity("El campo contraseña no debe estar vacio");
 
             password.style.background="#F5ABAB";
 
-                       
-
-        }else if(nickname.value == ""){
-
-            nickname.setCustomValidity("El campo usuario no debe estar vacio");
-
-            nickname.style.background="#F5ABAB";
-
 
         }else{
 
-           password.setCustomValidity("");
+            nickname.setCustomValidity("");
+            
+            password.setCustomValidity("");
 
-           nickname.setCustomValidity("");
+           
 
             password.style.background="white";
 
