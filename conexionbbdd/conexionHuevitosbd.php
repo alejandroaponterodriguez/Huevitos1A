@@ -4,6 +4,6 @@
 	$db_usuario = "root";
 	$db_contrahuevitos = "";
 
-	$db_nombre = "claveshuevistos";
+	$db_nombre = "cisoft1a";
 
  ?>
