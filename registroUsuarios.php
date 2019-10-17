@@ -139,7 +139,7 @@
             
         <td><label >Usuario:&nbsp;</label></td>
         
-        <td><input name="usuario" pattern="[1-9].{6,}" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="10" required></td>
+        <td><input name="usuario" pattern="[1-9][a-zA-Z][@/]" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required></td>
         
         </tr>
 

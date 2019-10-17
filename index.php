@@ -30,7 +30,7 @@
 				
 				<tr>
 					<td class="espacio">
-						<input type="text" name="nickname" id="nickname" placeholder="usuario" autofocus="true" class="tamanno" pattern="[1-9].{6,}">&nbsp;<img src="imagenes/imagenUsuarios.jpg" id="imagenNick" >
+						<input type="text" name="nickname" id="nickname" placeholder="usuario" autofocus="true" class="tamanno" pattern="[1-9][a-zA-Z][@/]">&nbsp;<img src="imagenes/imagenUsuarios.jpg" id="imagenNick" >
 					</td>
 					
 				</tr>
