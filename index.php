@@ -10,7 +10,7 @@
 
 		
 </head>
-<body>
+<body id="general">
 	<header id="titulos">
 		<h1>Huevitos 1A CISoft1A</h1>
 		<h2>Bienvenidos</h2>

@@ -115,7 +115,7 @@
 
     
 </head>
-<body>
+<body id="principal">
 
 <header id="titulos">
     <h1>CISoft1A</h1>
@@ -134,58 +134,189 @@
 
 	<form action="reglasNegocios/ingresosDatosII.php" method="post" id="registro" name="datos_usuario">
 				
-        <table>    
-        <tr>
-            
-        <td><label >Usuario:&nbsp;</label></td>
+        <table id="tabla1">
+            <tr>
+                    <td colspan="2" >
+                        <label class="titulosDatos">Datos de Acceso</label>
+                    </td>
+                </tr>
+            <tr>
+                
+                <tr>
+                    <td>
+                        <label>Usuario:&nbsp;</label>
+                    </td>
         
-        <td><input name="usuario" pattern="[1-9][a-zA-Z][@/]" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required></td>
+                    <td>
+                        <input name="usuario" pattern="[1-9][a-zA-Z][@/]" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <label>E-mail:&nbsp;</label>
+                    </td>
+                    <td>
+                        <input name="email" type="email" id="email" placeholder="e-mail" minlength="1" maxlength="50" required>
+                    </td>
+
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label>Contraseña:&nbsp;</label>
+                    </td>
+                    
+                    <td>
+                        <input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="20" required>
+                    </td>
+                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Repetir Contraseña:&nbsp;</label>
+                    </td>
+                    <td>
+                        <input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="20" required>
+                    </td>
+                    
+                </tr>
+
+            </tr>
+
+        </table>
+
+        <table id="tabla2"> 
+
+        <tr>
+            <td colspan="2" >
+                <label for="" class="titulosDatos">Datos personales</label>
+            </td>
+
+        </tr>   
+
+        <tr>
+            <td>
+                <label>Nombres:&nbsp;</label>
+            </td>
+        
+            <td>
+                <input name="nombres" type="text" id="nombres" placeholder="Ingresa Nombres"  minlength="3" maxlength="60" required>
+            </td>
         
         </tr>
 
         <tr>
-        <td><label>E-mail:&nbsp;</label></td>
-        <td><input name="email" type="email" id="email" placeholder="e-mail" minlength="1" maxlength="50" required></td>
+            <td>
+                <label>Apellidos:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="apelldidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="60" required>
+            </td>
         </tr>
-        
+
         <tr>
-        <td><label>Contraseña:&nbsp;</label></td>
-        
-        <td><input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="20" required></td>
+            <td>
+                <label>Cédula:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="apelldidos" pattern="[0-9]{6,}" id="apellidos" placeholder="Ingresa Cédula"  minlength="6" maxlength="10" required>
+            </td>
         </tr>
-        
+
         <tr>
-            <td><label>Repetir Contraseña:&nbsp;</label></td>
-            <td><input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="20" required></td>
+            <td>
+                <label>Dirección:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="direccion" type="text" id="direccion" placeholder="Ingresa Dirección"  minlength="3" maxlength="110" required>
+            </td>
         </tr>
-                    
+
+        <tr>
+            <td>
+                <label>Cargo:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="cargo" type="text" id="cargo" placeholder="Ingresa Cargo"  minlength="3" maxlength="30" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Teléfono:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="telefono" type="text" id="telefono" placeholder="Ingresa Teléfono"  minlength="10" maxlength="16" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Departamento:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="departamento" type="text" id="departamento" placeholder="Ingresa Departamento"  minlength="3" maxlength="55" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Sexo:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="sexo" type="text" id="sexo" placeholder="Ingresa Sexo F/M"  minlength="1" maxlength="1" required>
+            </td>
+        </tr>
+
+
+        
 
         </table>    
         <br>
+        <br>
         
-        <input type="submit" name="registrar" value="Registrar" class="btngeneral" id="registrar">
+         <table id="btncheck">
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="terminos" id="terminos"><label for="" id="textoterminos">Acepto términos y condiciones</label>
+                </td>
+                
+            </tr>
+        </table>
+        <br>
+        <div>
+            <input type="submit" name="registrar" value="Registrar" class="btngeneral" id="registrar">
         
         
         <button type="button" id="volver" name="volver" class="btngeneral">Volver</button> 
-       
+        </div>
         
-        
        
-
-                         
+                                 
     </form>
-        
-        
 
-       <br>
+   
+        
+        <footer>
+            <div id="pie">Sistema de Registro de Clientes</div>
+        </footer>
        
-            <div id="pie">Sistema de registro individual del personal</div>
+           
     
 </section> 
 
-    <footer>
-        
-    </footer>
+    
 
      
 

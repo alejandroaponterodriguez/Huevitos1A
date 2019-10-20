@@ -1,11 +1,16 @@
+#principal{
+	
+background-color: #F9F1AD;
+
+}
+
 #titulos{
 
-	width:300px;
-	height:80px;
+	width:280px;
+	height:70px;
 	margin:0 auto;
-	color:#6CBF0B;
-	margin-top:20px;
-	margin-bottom:5px;
+	color:#86BB06;
+	margin-top:2px;
 	
 	
 }
@@ -14,21 +19,30 @@ h1{
 	font-size:30px;
 	text-align:center;
 	font-family: "Arial";
+	color:#AF951E;
+	
 }
 
 h2{
 	font-size:25px;
 	text-align:center;
 	font-family: "Arial";
+	color:#AF951E;
+	
 }
 
 #contenedor{
 
+	background-image:url(../imagenes/fondoRegistro4.jpg);
+	background-repeat:round;
+	background-size:100%;
+
+
 	border:1px solid black;
-	width:400px;
-	height:440px;
+	width:800px;
+	height:600px;
 	margin:0 auto;
-	background-color:#6CBF0B;
+	
 	border-radius:20px;
 
 }
@@ -38,7 +52,7 @@ article{
 	width:200px;
 	height:150px;
 	margin:10px auto;
-	margin-bottom:20px;
+	margin-bottom:5px;
 }
 
 article img{
@@ -56,6 +70,7 @@ input{
 	width:200px;
 	height:25px;
 	font-size:16px;
+	padding-left:5px;
 }
 
 .btngeneral{
@@ -75,7 +90,11 @@ input{
 }
 
 table{
+	display: inline;
 	margin:0 auto;
+	
+	
+
 	
 }
 
@@ -84,9 +103,26 @@ td label{
 	
 }
 
+tr, td{
+
+	
+}
+
+#tabla1{
+
+	margin-right:20px;
+	width:400px;
+}
+
+#tabla2{
+
+margin-top:15px;
+
+}
 
 #pie{
 	text-align: center;
+	color:white;
 }
 
 #volver{
@@ -99,4 +135,45 @@ td label{
 
 	font-size:16px;
 	
+}
+
+label{
+
+	font-size:20px;
+	color:white;
+	
+}
+
+#terminos{
+
+	width:20px;
+	height:20px;
+	margin-left:0;
+
+}
+
+#textoterminos{
+
+	
+	
+	width:250px;
+	
+	
+}
+
+#btncheck{
+
+	display:block;
+	width:280px;
+	margin:0 auto;
+	
+}
+
+.titulosDatos{
+
+	width:150px;
+	margin-right:100px;
+	margin-bottom: 10px;
+	color:white;
+	font-weight: bold;
 }
