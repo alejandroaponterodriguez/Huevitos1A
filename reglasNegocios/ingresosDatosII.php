@@ -1,9 +1,8 @@
 <?php 
 
-	//Utilizando conexión a Objetos
-	/********************************/
-
 	
+
+	//VAriables de login para usuarios********
 
 	$usuario = $_POST["usuario"];
 
@@ -12,6 +11,26 @@
 	$contrasena = $_POST["contrasena"];
 	
 	$repecontrasena = $_POST["repecontrasena"];
+
+	//Variables de datos personales***********
+
+	$nombres = $_POST["nombres"];
+
+	$apellidos = $_POST["apellidos"];
+
+	$cedula = $_POST["cedula"];
+
+	$direccion = $_POST["direccion"];
+
+	$cargo = $_POST["cargo"];
+
+	$telefono = $_POST["telefono"];
+
+	$departamento = $_POST["departamento"];
+
+	$sexo = $_POST["sexo"];
+
+	//****************************************
 	
 
 			
@@ -30,7 +49,9 @@
 	
 	$sqlInsertar = "INSERT INTO tblclaves(USUARIO, CONTRA, EMAIL) VALUES('$usuario', '$contrasena', '$email')";
 
-	if($conexion->query($sqlInsertar)){
+	$sqlInsertarDatos = "INSERT INTO tblcliente(CliNombre, CliApellido, CliDireccion, CliCargo, CliTelefono, CliDepartamento, CliSexo) VALUES('$nombres','$apellidos','$direccion','$cargo','$telefono','$departamento', '$sexo')";
+
+	if($conexion->query($sqlInsertarDatos) && $conexion->query($sqlInsertar)){
 
 		$conexion->close();
 		require("registroExitosos.php");

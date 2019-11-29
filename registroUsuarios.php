@@ -24,6 +24,8 @@
 
         document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
 
+        document.getElementById("textoterminos").addEventListener("click",activarcheck,false);
+
         
 
         
@@ -73,12 +75,22 @@
 
             repepassword.style.background="white";
 
-            var correcto = document.datos_usuario.checkValidity();
+            var btncheckbox = document.getElementById("terminos");
 
-            if(correcto){
+            if(btncheckbox.checked){
+
+                var correcto = document.datos_usuario.checkValidity();
+
+                if(correcto){
 
                 document.datos_usuario.submit();
+                }
+
+            }else{
+
+                alert("Para registrarse debe aceptar los terminos y condiciones");
             }
+            
 
 
         }
@@ -104,6 +116,23 @@
 
     }
 
+    function activarcheck(){
+
+        alert("pulse el texto");
+
+        var btncheckbox=document.getElementById("terminos");
+
+        if(!btncheckbox.checked){
+
+            btncheckbox.checked=true;
+
+        }else{
+
+            btncheckbox.checked=false;
+        }
+
+        
+    }
     
     
     
@@ -148,7 +177,7 @@
                     </td>
         
                     <td>
-                        <input name="usuario" pattern="[1-9][a-zA-Z][@/]" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required>
+                        <input name="usuario" pattern="[A-Za-z0-9]+" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required>
                     </td>
                 </tr>
 
@@ -215,7 +244,7 @@
             </td>
             
             <td>
-                <input name="apelldidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="60" required>
+                <input name="apellidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="60" required>
             </td>
         </tr>
 
@@ -225,7 +254,7 @@
             </td>
             
             <td>
-                <input name="apelldidos" pattern="[0-9]{6,}" id="apellidos" placeholder="Ingresa Cédula"  minlength="6" maxlength="10" required>
+                <input name="cedula" pattern="[0-9]{6,}" id="cedula" placeholder="Ingresa Cédula"  minlength="6" maxlength="10" required>
             </td>
         </tr>
 
@@ -275,7 +304,12 @@
             </td>
             
             <td>
-                <input name="sexo" type="text" id="sexo" placeholder="Ingresa Sexo F/M"  minlength="1" maxlength="1" required>
+                <input list="milista" name="sexo"  id="sexo" placeholder="Ingresa Sexo F/M"  minlength="1" maxlength="1" required>
+
+                <datalist id="milista">
+                    <option value="F"></option>
+                    <option value="M"></option>
+                </datalist>
             </td>
         </tr>
 
