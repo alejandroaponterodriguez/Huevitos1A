@@ -39,8 +39,8 @@ h2{
 
 
 	border:1px solid black;
-	width:800px;
-	height:600px;
+	width:1240px;
+	height:550px;
 	margin:0 auto;
 	
 	border-radius:20px;
@@ -49,16 +49,17 @@ h2{
 
 article{
 
-	width:200px;
-	height:150px;
+	width:120px;
+	height:100px;
 	margin:10px auto;
-	margin-bottom:5px;
+	margin-bottom:15px;
+	
 }
 
 article img{
 
-	width:200px;
-	height:150px;
+	width:120px;
+	height:100px;
 	margin:0 auto;
 	border-radius:10px;
 
@@ -71,6 +72,7 @@ input{
 	height:25px;
 	font-size:16px;
 	padding-left:5px;
+	
 }
 
 .btngeneral{
@@ -86,6 +88,7 @@ input{
 #registro{
 	float: none;
 	text-align:center;
+	height:390px;
 	
 }
 
@@ -103,21 +106,38 @@ td label{
 	
 }
 
-tr, td{
+td{
 
-	
+	padding-top:2px;
+	padding-left:5px;
 }
 
 #tabla1{
 
-	margin-right:20px;
+	margin-right:5px;
+	margin-left: 20px;
 	width:400px;
+	float: left;
+	border:1px solid white;
+	border-radius: 10px;
 }
 
 #tabla2{
+float: left;
+margin-left:15px;
+border:1px solid white;
+padding-right: 15px;
+border-radius: 10px;
 
-margin-top:15px;
+}
 
+#table3{
+
+	float: right;
+	margin-right: 20px;
+	border:1px solid white;
+	padding-right: 15px;
+	border-radius: 10px;
 }
 
 #pie{
@@ -144,11 +164,13 @@ label{
 	
 }
 
-#terminos{
+.terminos{
 
 	width:20px;
 	height:20px;
 	margin-left:0;
+	
+
 
 }
 
@@ -164,8 +186,9 @@ label{
 #btncheck{
 
 	display:block;
-	width:280px;
+	width:300px;
 	margin:0 auto;
+	
 	
 }
 
@@ -176,4 +199,13 @@ label{
 	margin-bottom: 10px;
 	color:white;
 	font-weight: bold;
+}
+
+.contenedortablas{
+
+	height:300px;
+}
+
+#textoterminos{
+	
 }

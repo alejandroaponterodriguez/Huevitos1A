@@ -24,7 +24,12 @@
 
         document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
 
-        document.getElementById("textoterminos").addEventListener("click",activarcheck,false);
+
+        //document.getElementById("terminos").addEventListener("click",activarcheck,false);
+
+        //document.getElementById("textoterminos").addEventListener("click",activarcheck,false);
+
+        //document.getElementById("checkfijo").addEventListener("click",activarfijo,false);
 
         
 
@@ -118,8 +123,7 @@
 
     function activarcheck(){
 
-        alert("pulse el texto");
-
+        
         var btncheckbox=document.getElementById("terminos");
 
         if(!btncheckbox.checked){
@@ -132,6 +136,42 @@
         }
 
         
+    }
+
+    function activarfijo(){
+
+        var telefonofijo = document.getElementById("telefonofijo");
+
+        var checkfijo = document.getElementById("checkfijo");
+
+        
+
+        if(checkfijo.checked){
+
+            telefonofijo.readOnly=false;
+
+        }else{
+
+            telefonofijo.readOnly=true;
+        }
+    }
+
+     function activarpbx(){
+
+        var pbx = document.getElementById("pbx");
+
+        var checkpbx = document.getElementById("checkpbx");
+
+        
+
+        if(checkpbx.checked){
+
+            pbx.readOnly=false;
+
+        }else{
+
+            pbx.readOnly=true;
+        }
     }
     
     
@@ -162,7 +202,7 @@
     </article>
 
 	<form action="reglasNegocios/ingresosDatosII.php" method="post" id="registro" name="datos_usuario">
-				
+		<div class="contenedortablas">	
         <table id="tabla1">
             <tr>
                     <td colspan="2" >
@@ -199,7 +239,7 @@
                     </td>
                     
                     <td>
-                        <input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="20" required>
+                        <input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="50" required>
                     </td>
                     
                 </tr>
@@ -209,7 +249,7 @@
                         <label>Repetir Contraseña:&nbsp;</label>
                     </td>
                     <td>
-                        <input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="20" required>
+                        <input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="50" required>
                     </td>
                     
                 </tr>
@@ -233,7 +273,7 @@
             </td>
         
             <td>
-                <input name="nombres" type="text" id="nombres" placeholder="Ingresa Nombres"  minlength="3" maxlength="60" required>
+                <input name="nombres" type="text" id="nombres" placeholder="Ingresa Nombres"  minlength="3" maxlength="30" required>
             </td>
         
         </tr>
@@ -244,7 +284,7 @@
             </td>
             
             <td>
-                <input name="apellidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="60" required>
+                <input name="apellidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="30" required>
             </td>
         </tr>
 
@@ -254,7 +294,7 @@
             </td>
             
             <td>
-                <input name="cedula" pattern="[0-9]{6,}" id="cedula" placeholder="Ingresa Cédula"  minlength="6" maxlength="10" required>
+                <input name="cedula" pattern="[0-9]{6,}" id="cedula" placeholder="Ingresa Cédula"  minlength="6" maxlength="11" required>
             </td>
         </tr>
 
@@ -264,7 +304,7 @@
             </td>
             
             <td>
-                <input name="direccion" type="text" id="direccion" placeholder="Ingresa Dirección"  minlength="3" maxlength="110" required>
+                <input name="direccion" type="text" id="direccion" placeholder="Ingresa Dirección"  minlength="3" maxlength="100" required>
             </td>
         </tr>
 
@@ -278,23 +318,14 @@
             </td>
         </tr>
 
-        <tr>
-            <td>
-                <label>Teléfono:&nbsp;</label>
-            </td>
-            
-            <td>
-                <input name="telefono" type="text" id="telefono" placeholder="Ingresa Teléfono"  minlength="10" maxlength="16" required>
-            </td>
-        </tr>
-
+        
         <tr>
             <td>
                 <label>Departamento:&nbsp;</label>
             </td>
             
             <td>
-                <input name="departamento" type="text" id="departamento" placeholder="Ingresa Departamento"  minlength="3" maxlength="55" required>
+                <input name="departamento" type="text" id="departamento" placeholder="Ingresa Departamento"  minlength="3" maxlength="30" required>
             </td>
         </tr>
 
@@ -316,19 +347,62 @@
 
         
 
-        </table>    
-        <br>
-        <br>
+        </table>   
+
+        <table id="table3">
+             <tr>
+            <td colspan="3" >
+                <label for="" class="titulosDatos">Datos Telefónicos</label>
+            </td>
+
+            </tr> 
+
+            <tr>
+            <td>
+                <label>Número de Celular:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="celular" type="text" id="celular" placeholder="Ingresa Teléfono"  minlength="10" maxlength="20" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="checkbox" name="checkfijo" id="checkfijo" class="terminos" onclick="activarfijo()"><label>&nbsp;&nbsp;&nbsp;Número Fijo:&nbsp;</label>
+            </td>
+            
+            
+            <td>
+                <input name="telefonofijo"  type="text" id="telefonofijo" placeholder="Ingresa Teléfono Fijo"  minlength="10" maxlength="20" readonly="readonly" >
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <input type="checkbox" name="checkpbx" id="checkpbx" class="terminos" onclick="activarpbx()"><label>&nbsp;&nbsp;Número PBX:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="pbx" type="text" id="pbx" placeholder="Ingresa PBX"  minlength="10" maxlength="20" readonly="readonly">
+            </td>
+        </tr>
+
+        </table> 
+
+        </div>
         
          <table id="btncheck">
             <tr>
-                <td colspan="2">
-                    <input type="checkbox" name="terminos" id="terminos"><label for="" id="textoterminos">Acepto términos y condiciones</label>
+                <td>
+                    <input type="checkbox" name="terminos" id="terminos" class="terminos"><label for="" id="textoterminos" onclick="activarcheck()">Acepto términos y condiciones</label>
                 </td>
                 
             </tr>
         </table>
+
         <br>
+
         <div>
             <input type="submit" name="registrar" value="Registrar" class="btngeneral" id="registrar">
         
