@@ -1,9 +1,10 @@
 <?php 
 	
-	$db_host = "localhost";
-	$db_usuario = "root";
-	$db_contrahuevitos = "";
+	define("DB_HOST","mysql:host=localhost; dbname=cisoft1a");
+	define("DB_USUARIO","root");
+	define("DB_CONTRA","");
 
-	$db_nombre = "cisoft1a";
+	define("DB_CHARACTER","SET CHARACTER SET UTF8");
 
- ?>
+
+?>

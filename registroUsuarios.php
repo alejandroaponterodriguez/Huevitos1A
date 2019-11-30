@@ -239,7 +239,7 @@
                     </td>
                     
                     <td>
-                        <input name="contrasena" type="password" id="contrasena" placeholder="Ingresa Password"  minlength="8" maxlength="50" required>
+                        <input name="contrasenna" type="password" id="contrasenna" placeholder="Ingresa Password"  minlength="8" maxlength="50" required>
                     </td>
                     
                 </tr>
@@ -249,7 +249,7 @@
                         <label>Repetir Contraseña:&nbsp;</label>
                     </td>
                     <td>
-                        <input name="repecontrasena" type="password" id="repecontrasena" placeholder="Repetir Password" minlength="8" maxlength="50" required>
+                        <input name="repecontrasenna" type="password" id="repecontrasenna" placeholder="Repetir Password" minlength="8" maxlength="50" required>
                     </td>
                     
                 </tr>
