@@ -5,9 +5,39 @@
 	
 	try{
 
+		//Variables de Contra.****************
 		$usurio;
 		$email;
 		$contrasenna;
+		$repecontrasenna;
+
+		//Variables de datos Usuario.**********
+		$nombres;
+		$apellidos;
+		$cedula;
+		$direccion;
+		$cargo;
+		$departamento;
+		$sexo;
+
+		//Variables de Telefono*****************
+
+		$celular;
+		$telefonofijo;
+		$pbx;
+
+		//Variables para consultas
+
+		$id_cliente;
+		$idClienteInt;
+		$control_registros_clave;
+		$registroTelefono;
+		$ultimoid;
+
+		$resultadoClave;
+		$control_registros;
+		$ulitoIdClave;
+
 
 		if(isset($_POST["usuario"]) &&
 			isset($_POST["email"]) &&
@@ -67,11 +97,7 @@
 	
 	require("../conexionbbdd/conexionHuevitosbd.php");
 
-		$id_cliente=0;
-		$idClienteInt=0;
-		$control_registros_clave=0;
-		$registroTelefono=0;
-		$ultimoid=0;
+		
 
 		$conexion = new PDO(DB_HOST,DB_USUARIO,DB_CONTRA);
 
@@ -96,40 +122,28 @@
 		$resultadoCliente->bindValue(":sex",$sexo);
 
 		
-
+		
 		$resultadoCliente->execute();
 
 		$control_registros = $resultadoCliente->rowCount();
 
 		
+		$ultimoid=$conexion->lastInsertId();
+
+		
+
+#****************************************************************
 
 		if($control_registros!=0){
 
+			#$resultadoCliente->closeCursor();
 
-			//Buscar el Id_Cliente para enviarlo a la tabla Clave.
-
-			$sqlBuscarIdCliente ="SELECT ID_CLIENTE, CEDULA FROM tblcliente WHERE CEDULA=:ced";
-
-			$resultadoBuscarIdCliente = $conexion->prepare($sqlBuscarIdCliente);
-
-			$resultadoBuscarIdCliente->bindValue(":ced",$cedula);
-
-			$resultadoBuscarIdCliente->execute();
-
-			$registros=$resultadoBuscarIdCliente->fetchAll(PDO::FETCH_ASSOC);
-
-			$id_cliente = $registros['ID_CLIENTE'];
-
-			$ultimoid = intval($id_cliente);
-
-			//echo "Este el valor:" . $idClienteInt;
-				
-			
-			//Ingresando datos a la tabla de Clave
-
-			$sqlClave = "INSERT INTO tblclave(ID_CLIENTE,USUARIO,CONTRASENNA,EMAIL) VALUES(:idcliente:usua,:contra,:correo)";
+			#************Acceso a la BBDD de clave
+			$sqlClave = "INSERT INTO tblclave(ID_CLIENTE,USUARIO,CONTRASENNA,EMAIL) VALUES(:idcliente,:usua,:contra,:correo)";
 
 			$resultadoClave = $conexion->prepare($sqlClave);
+
+
 
 			//Encriptando la contraseña con password_hash();
 
@@ -137,109 +151,124 @@
 
 			//******************************************************************
 
-			$resultadoClave->bindValue(":idcliente",$ultimoid);
+			$resultadoClave->bindValue(":idcliente",intval($ultimoid));
 			$resultadoClave->bindValue(":usua",$usuario);
 			$resultadoClave->bindValue(":contra",$claveEncriptada);
 			$resultadoClave->bindValue(":correo",$email);
 
-			/*$resultadoClave->execute(array(":idcliente"=>$ultimoid,":usua"=>$usuario,":contra"=>$claveEncriptada,":correo"=>$email));*/
+			$resultadoClave->execute();
 
 			$control_registros_clave = $resultadoClave->rowCount();
 
-			$resultadoClave->closeCursor();
+			
+
+				if($control_registros_clave!=0){
+
+
+					#$resultadoClave->closeCursor();
+
+					#**********Acceso BBDD de telefono
+					$sqlTelefono = "INSERT INTO tbltelefono(ID_CLIENTE,NUMERO_CELULAR,NUMERO_FIJO,PBX) VALUES(:id_cliente,:cel,:fijo,:pbx)";
+
+					$resultadoTelefono = $conexion->prepare($sqlTelefono);
+
+					$resultadoTelefono->bindValue(":id_cliente",intval($ultimoid));
+					$resultadoTelefono->bindValue(":cel",$celular);
+					$resultadoTelefono->bindValue(":fijo",$telefonofijo);
+					$resultadoTelefono->bindValue(":pbx",$pbx);
+
+
+					$resultadoTelefono->execute();
+
+					$registroTelefono = $resultadoTelefono->rowCount();
+
+							if($registroTelefono!=0){
+
+
+									$resultadoTelefono->closeCursor();
+									$resultadoCliente->closeCursor();
+									$resultadoClave->closeCursor();
+
+									$resultadoCliente=null;
+									$resultadoClave=null;	
+									$resultadoTelefono=null;
+
+									$conexion=null;
+
+									header("location:registroExitosos.php");
+
+
+							}else{
+
+								$sqlBorradoCliente = "DELETE FROM tblcliente WHERE ID_CLIENTE=:cliente";
+
+								$resultadoborrar = $conexion->prepare($sqlBorradoCliente);
+
+								$resultadoborrar->bindValue(":cliente",intval($ultimoid));
+
+								$resultadoborrar->execute();
+
+																
+								$resultadoborrar->closeCursor();
+								$resultadoCliente->closeCursor();
+								$resultadoClave->closeCursor();
+								$resultadoTelefono->closeCursor();
+
+								$resultadoCliente=null;
+								$resultadoClave=null;	
+								$resultadoborrar=null;
+								$resultadoTelefono=null;
+								
+								header("location:errorDeDatosRegistros.php");
+
+							}
+
+
+				}else{
+
+					$sqlBorradoCliente = "DELETE FROM tblcliente WHERE ID_CLIENTE=:cliente";
+
+					$resultadoborrar = $conexion->prepare($sqlBorradoCliente);
+
+					$resultadoborrar->bindValue(":cliente",intval($ultimoid));
+
+					$resultadoborrar->execute();
+
+													
+					$resultadoborrar->closeCursor();
+					$resultadoCliente->closeCursor();
+					$resultadoClave->closeCursor();
+
+					$resultadoCliente=null;
+					$resultadoClave=null;	
+					$resultadoborrar=null;
+					
+					header("location:errorDeDatosRegistros.php");
+
+				}
+
 
 		}else{
 
-					/*$sqlBorradoCliente = "DELETE FROM tblcliente WHERE ID_CLIENTE=:cliente";
-
-					$resultadoborrar = $conexion->prepare($sqlBorradoCliente);
-
-					$resultadoborrar->bindValue(":cliente",$idClienteInt);
-
-					$resultadoborrar->execute();*/
-
-					$conexion->close();
-					//$resultadoborrar->closeCursor();
-
-					header("location:errorDeDatosRegistros.php");
-
-
-				}
-
-
-
-			if($control_registros_clave!=0){
-
-				//Registrando la base de datos de Telefono.
-
-				$sqlTelefono = "INSERT INTO tbltelefono(ID_CLIENTE,NUMERO_CELULAR,NUMERO_FIJO,PBX) VALUES(:id_cliente,:cel,:fijo,:pbx)";
-
-				$resultadoTelefono = $conexion->prepare($sqlTelefono);
-
-				$resultadoTelefono->bindValue(":id_cliente",$ultimoid);
-				$resultadoTelefono->bindValue(":cel",$celular);
-				$resultadoTelefono->bindValue(":fijo",$telefonofijo);
-				$resultadoTelefono->bindValue(":pbx",$pbx);
-
-
-				$resultadoTelefono->execute();
-
-				$registroTelefono = $resultadoTelefono->rowCount();
-
-				$resultadoTelefono->closeCursor();
-
-
-
-			}else{
-
-					/*$sqlBorradoCliente = "DELETE FROM tblcliente WHERE ID_CLIENTE=:cliente";
-
-					$resultadoborrar = $conexion->prepare($sqlBorradoCliente);
-
-					$resultadoborrar->bindValue(":cliente",$idClienteInt);
-
-					$resultadoborrar->execute();*/
-
-					$conexion->close();
-
-					//$resultadoborrar->closeCursor();
-
-					header("location:errorDeDatosRegistros.php");
-
-
-				}
-
-
-
-					if($registroTelefono!=0){
-
-						$conexion->close();
-
-						header("location:registroExitosos.php");
-
-					}else{
-
-						
-
-						$sqlBorradoCliente = "DELETE FROM tblcliente WHERE ID_CLIENTE=:cliente";
-
-						$resultadoborrar = $conexion->prepare($sqlBorradoCliente);
-
-						$resultadoborrar->bindValue(":cliente",$ultimoid);
-
-						$resultadoborrar->execute();
-
-						$conexion->closeCursor();
-
-						$resultadoborrar->closeCursor();
-
-						header("location:errorDeDatosRegistros.php");
-					}
-
 			
+			$resultadoCliente->closeCursor();
 
-		$conexion->close();
+			$resultadoCliente=null;
+			
+			header("location:errorDeDatosRegistros.php");
 
+		}
+
+#*************************************para revisar.
+	
+
+		$resultadoCliente->closeCursor();
+		$resultadoClave->closeCursor();	
+		$resultadoTelefono->closeCursor();	
+		
+		$resultadoCliente=null;
+		$resultadoClave=null;	
+		$resultadoTelefono=null;	
 
 	}catch(Exception $e){
 
