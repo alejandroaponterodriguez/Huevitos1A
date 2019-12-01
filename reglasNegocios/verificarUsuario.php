@@ -15,15 +15,14 @@
 			$autenticado=false;
 			$controlRegistros;
 
-			if(isset($_POST['nickname']) && isset($_POST['password'])){
+			if(isset($_POST["nickname"]) && isset($_POST["password"])){
 
-				$nickname = $_POST['nickname'];
-				$password = $_POST['password'];
+				$usuario = htmlentities(addslashes($_POST["nickname"]));
+				$clave = htmlentities(addslashes($_POST["password"]));
 
 			}
 
-			$usuario = htmlentities(addslashes($_POST['nickname']));
-			$clave = htmlentities(addslashes($_POST['password']));
+			
 		
 
 		require("../conexionbbdd/conexionHuevitosbd.php");
@@ -43,20 +42,30 @@
 			$resultadoBuscar->execute();
 
 			
-			while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_OBJ)){
-					
-					if(password_verify($clave,$controlRegistros->CONTRASENNA)){
 
-						if($controlRegistros->USUARIO == $usuario){
-
-							$autenticado=true;
-						}
+			
+while($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
 
 						
-					}
+if(password_verify($clave,$controlRegistros['CONTRASENNA'])){
 
-					
-				}
+	
+
+	if ($controlRegistros['USUARIO']==$usuario) {
+		
+		$autenticado = true;
+	}
+}
+	/*$compro=password_verify($clave,$controlRegistros['CONTRASENNA']);
+
+		echo "El usuario es: " . $controlRegistros['USUARIO'] . "<br><br>";
+		echo "La clave es: " . $controlRegistros['CONTRASENNA'] . "<br><br>";
+
+		echo "Imprime si son iguales: " . $compro . "<br><br>";*/
+	}
+
+				//echo "valor: " . $autenticado . "<br><br>";			
+			
 
 			if($autenticado){
 
@@ -67,14 +76,17 @@
 
 				$_SESSION['usuariologin'] = $usuario;
 
-				header("location:crearSesion.php?");
+				//header("location:crearSesion.php?");
 
-				//header('location:../Menu.php');
+				header('location:../Menu.php');
 
 			}else{
 
+				
 				$resultadoBuscar->closeCursor();
 				$conexion=null;
+
+
 				header("location:usuarioNoExiste.php");
 
 			}
