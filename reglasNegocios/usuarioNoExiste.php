@@ -22,7 +22,7 @@
 	
 	<form action="../index.php">
 
-		<h1>Usuario No se encuentra registrado</h1>
+		<h1>El Usuario no se encuentra registrado.</h1>
 		
 		
 		<input type="submit" name="volver" value="Volver">

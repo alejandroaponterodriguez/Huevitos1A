@@ -8,51 +8,74 @@
 	
 	<?php 
 
-		$nickname = $_POST['nickname'];
-		$password = $_POST['password'];
+		
+
+		try {
+
+			$autenticado=false;
+
+			if(isset($_POST['nickname']) && isset($_POST['password'])){
+
+				$nickname = $_POST['nickname'];
+				$password = $_POST['password'];
+
+			}
+
+			$usuario = htmlentities(addslashes($_POST['nickname']));
+			$clave = htmlentities(addslashes($_POST['password']));
+		
 
 		require("../conexionbbdd/conexionHuevitosbd.php");
 
-		$conexion = new mysqli($db_host,$db_usuario,$db_contrahuevitos,$db_nombre);
+			$conexion = new PDO(DB_HOST,DB_USUARIO,DB_CONTRA);
 
-		if($conexion->connect_error){
+			$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			die("No se puedo conectar la base datos :" . $conenxion->mysqli_error);
-		}
+			$conexion->exec(DB_CHARACTER);
 
-		$conexion->set_charset("utf8");
+			$sqlBuscar = "SELECT USUARIO, CONTRASENNA FROM tblclave WHERE USUARIO=:usu";
 
-		$consultasql= "SELECT USUARIO, CONTRA FROM tblclaves WHERE USUARIO='$nickname' AND CONTRA='$password'";
+			$resultadoBuscar = $conexion->prepare($sqlBuscar);
 
-		if($resultado = $conexion->query($consultasql)){
+			$resultadoBuscar->bindValue(":usu",$usuario);
 
-			$filas = $resultado->fetch_assoc();
+			$resultadoBuscar->execute();
 
 			
+			while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
+					
+					if($controlRegistros['USUARIO']==$usuario && password_verify($clave,$controlRegistros['CONTRASENNA'])){
 
-			if($filas['USUARIO']==$nickname && $filas['CONTRA']==$password){
+						$autenticado=true;
+					}
 
-				$conexion->close();
+					
+				}
 
+			if($autenticado){
+
+				$resultadoBuscar->closeCursor();
+				$conexion=null;
 
 				header('location:../Menu.php');
 
-
 			}else{
 
-				$conexion->close();
+				$resultadoBuscar->closeCursor();
+				$conexion=null;
+				header("location:usuarioNoExiste.php");
 
-				require("usuarioNoExiste.php");
 			}
 			
-
 			
+		} catch (Exception $e) {
 
+			die("Error en la conexión: " . $e->getMessage());
+			
 		}
 
-		
 
-		
+
 
 	 ?>
 
