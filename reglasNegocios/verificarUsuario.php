@@ -13,6 +13,7 @@
 		try {
 
 			$autenticado=false;
+			$controlRegistros;
 
 			if(isset($_POST['nickname']) && isset($_POST['password'])){
 
@@ -42,11 +43,16 @@
 			$resultadoBuscar->execute();
 
 			
-			while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
+			while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_OBJ)){
 					
-					if($controlRegistros['USUARIO']==$usuario && password_verify($clave,$controlRegistros['CONTRASENNA'])){
+					if(password_verify($clave,$controlRegistros->CONTRASENNA)){
 
-						$autenticado=true;
+						if($controlRegistros->USUARIO == $usuario){
+
+							$autenticado=true;
+						}
+
+						
 					}
 
 					
@@ -57,7 +63,13 @@
 				$resultadoBuscar->closeCursor();
 				$conexion=null;
 
-				header('location:../Menu.php');
+				session_start();
+
+				$_SESSION['usuariologin'] = $usuario;
+
+				header("location:crearSesion.php?");
+
+				//header('location:../Menu.php');
 
 			}else{
 

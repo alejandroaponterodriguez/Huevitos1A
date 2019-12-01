@@ -9,6 +9,17 @@
 
 </head>
 <body id="fondo">
+
+	<?php 
+
+		session_start();
+
+		if(!isset($_SESION['usuariologin'])){
+
+			header("location:index.php");
+		}
+
+	 ?>
 		
 		<section class="contenedor">
 
@@ -16,7 +27,7 @@
 			<input type="button" class="info" value="SISTEMA DE INFORMACION CISOFT1A">
 			<input type="submit" value="BUSQUEDA">
 			<input type="text" name="nombre" placeholder="BUSCAR" required>	
-			<input type="button" value="CERRAR SESION">
+			<input type="button" value="CERRAR SESION"><label for="">&nbsp;<?php echo $_SESION['usuariologin'];?></label>
 		</form>
 				
 			<br>
