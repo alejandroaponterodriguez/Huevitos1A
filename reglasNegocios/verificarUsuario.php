@@ -22,9 +22,7 @@
 
 			}
 
-			
-		
-
+	
 		require("../conexionbbdd/conexionHuevitosbd.php");
 
 			$conexion = new PDO(DB_HOST,DB_USUARIO,DB_CONTRA);

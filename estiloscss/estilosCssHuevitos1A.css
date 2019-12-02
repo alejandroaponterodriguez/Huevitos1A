@@ -40,7 +40,7 @@ h2{
 	border-top-left-radius:20px;
 	border-bottom-left-radius:20px;
 
-	background-image:url(../imagenes/fondoRegistro.jpg);
+	background-image:url("../imagenes/fondoRegistro.jpg");
 	background-repeat:round;
 	background-size:100%;
 

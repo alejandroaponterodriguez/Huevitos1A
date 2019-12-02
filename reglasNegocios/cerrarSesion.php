@@ -12,7 +12,7 @@
 
 		session_destroy();
 
-		header("locatacion:../index.php");
+		header("location:../index.php");
 
 	 ?>
 	
