@@ -28,7 +28,7 @@
 			<input type="button" class="info" value="SISTEMA DE INFORMACION CISOFT1A">
 			<input type="submit" value="BUSQUEDA">
 			<input type="text" name="nombre" placeholder="BUSCAR" required>	
-			<input type="button" value="CERRAR SESION"><label for="">&nbsp;<?php echo "Usuario: " . $_SESSION['usuariologin'];?></label>
+			<a href="reglasNegocio/cerrarSesion.php"><input type="button" value="CERRAR SESION"></a><label for="">&nbsp;<?php echo "Usuario: " . $_SESSION['usuariologin'];?></label>
 		</form>
 				
 			<br>

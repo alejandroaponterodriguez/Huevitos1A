@@ -5,6 +5,16 @@
 	<title>Creación de Sesión de Usuario.</title>
 </head>
 <body>
+
+	<?php 
+
+		session_start();
+
+		session_destroy();
+
+		header("locatacion:../index.php");
+
+	 ?>
 	
 </body>
 </html>
