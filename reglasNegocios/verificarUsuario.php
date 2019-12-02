@@ -12,7 +12,7 @@
 
 		try {
 
-			$autenticado=false;
+			$autenticado=0;
 			$controlRegistros;
 
 			if(isset($_POST["nickname"]) && isset($_POST["password"])){
@@ -41,47 +41,38 @@
 
 			$resultadoBuscar->execute();
 
-			
 
-			
-while($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
-
+while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
 						
-if(password_verify($clave,$controlRegistros['CONTRASENNA'])){
+		if(password_verify($clave,$controlRegistros['CONTRASENNA']) && $controlRegistros['USUARIO']==$usuario){
+
+			
+
+				$autenticado=true;
+			
+
+		}
+}					
 
 	
-
-	if ($controlRegistros['USUARIO']==$usuario) {
-		
-		$autenticado = true;
-	}
-}
-	/*$compro=password_verify($clave,$controlRegistros['CONTRASENNA']);
-
-		echo "El usuario es: " . $controlRegistros['USUARIO'] . "<br><br>";
-		echo "La clave es: " . $controlRegistros['CONTRASENNA'] . "<br><br>";
-
-		echo "Imprime si son iguales: " . $compro . "<br><br>";*/
-	}
-
-				//echo "valor: " . $autenticado . "<br><br>";			
-			
-
 			if($autenticado){
+
+				
 
 				$resultadoBuscar->closeCursor();
 				$conexion=null;
 
 				session_start();
 
-				$_SESSION['usuariologin'] = $usuario;
+				$_SESSION['usuariologin'] = $_POST['nickname'];
 
-				//header("location:crearSesion.php?");
+				#header("location:crearSesion.php?");
 
-				header('location:../Menu.php');
+				header("location:../Menu.php");
 
 			}else{
 
+				
 				
 				$resultadoBuscar->closeCursor();
 				$conexion=null;
