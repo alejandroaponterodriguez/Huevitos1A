@@ -28,7 +28,7 @@
 		<table>
 				<tr>
 					<td><label for="">Contraseña Antigua:&nbsp;</label></td>
-					<td><input name="contraanti" type="password" id="contrasanti" placeholder="Ingresa Password Antiguo"  minlength="8" maxlength="50" required ></td>
+					<td><input name="contraanti" type="password" id="contraanti" placeholder="Ingresa Password Antiguo"  minlength="8" maxlength="50" required ></td>
 				</tr>
 			 	<tr>
 		            <td>
@@ -36,7 +36,7 @@
 		            </td>
 		            
 		            <td>
-		                <input name="contrasnue" type="password" id="contrasenue" placeholder="Ingresa Password Nuevo"  minlength="8" maxlength="50" required >
+		                <input name="contranue" type="password" id="contraenue" placeholder="Ingresa Password Nuevo"  minlength="8" maxlength="50" required >
 		            </td>
 		            
 		        </tr>
@@ -46,7 +46,7 @@
 		                <label>Repetir Contraseña Nueva:&nbsp;</label>
 		            </td>
 		            <td>
-		                <input name="repecontrasenue" type="password" id="repecontrasenue" placeholder="Repetir Password Nuevo" minlength="8" maxlength="50" required>
+		                <input name="repecontranue" type="password" id="repecontranue" placeholder="Repetir Password Nuevo" minlength="8" maxlength="50" required>
 		            </td>
 		            
 		        </tr>
