@@ -1,5 +1,6 @@
     var nickname;
     var password;
+    var control=false;
 
     function comenzar(){
 
@@ -101,6 +102,29 @@
 
             entradas.style.background="#F5ABAB";
         }
+
+    }
+
+    function visible(){
+
+        var claveOculta = document.getElementById("password");
+        var imagenCambio = document.getElementById("imagenPasswordNo");
+
+        if(control){
+
+            claveOculta.type="password";
+            control=false;
+            imagenCambio.src="imagenes/imagenPasswordNo.png";
+            
+
+        }else{
+
+            claveOculta.type="text";
+            control=true;
+            imagenCambio.src="imagenes/imagenPassword.png";
+            
+        }
+
 
     }
 

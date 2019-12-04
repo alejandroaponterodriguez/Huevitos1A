@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td class="espacio">
-						<input type="password" name="password" id="password" placeholder="password" class="tamanno" minlength="8" maxlength="20" required>&nbsp;<img src="imagenes/imagenPasswordNo.png" id="imagenPasswordNo" >
+						<input type="password" name="password" id="password" placeholder="password" class="tamanno" minlength="8" maxlength="20" required>&nbsp;<img src="imagenes/imagenPasswordNo.png" id="imagenPasswordNo" onclick="visible()" >
 					</td>
 				</tr>
 					
