@@ -1,0 +1,109 @@
+#titulo{
+	width:600px;
+	margin:auto;
+	margin-top:10px;
+	padding:2px;
+	font-size:20px;
+	text-align: center;
+	background-image: url("../imagenes/fondoRegistro.jpg");
+	background-size: 100%;
+	border-radius: 10px;
+	color:white;
+
+}
+#titulomenu{
+	width:550px;
+	margin:auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	text-align: center;
+}
+
+#contenedor{
+	
+	width:600px;
+	margin:auto;
+	margin-top: 20px;
+	
+}
+
+#menuprincipal{
+
+	width: 600px;
+	height:70px;
+	border-radius:10px;
+	border:1px solid black;
+	background-image: url("../imagenes/fondoRegistro.jpg");
+	background-size: 100%;
+}
+
+#menusecundario{
+
+	width: 600px;
+	margin-top:20px;
+	border-radius:10px;
+	border:1px solid black;
+	background-image: url("../imagenes/fondoRegistro.jpg");
+	background-size: 100%;
+}
+
+.control{
+
+	width:550px;
+	height:50px;
+}
+
+.menu{
+
+	color:white;
+	font-size: 16px;
+}
+#controlmenu{
+
+	
+	margin:auto;
+	width: 500px;
+}
+
+
+
+td{
+	padding: 2px;
+}
+
+a{
+	color:white;
+}
+
+.letras{
+
+	font-size:20px;
+}
+
+input{
+
+	width: 150px;
+	font-size: 16px;
+}
+
+.botones{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+#contenedorbtn{
+
+	width:600px;
+	margin: auto;
+}
+
+#btnpqr{
+
+	width:90px;
+}
+
+#contbtnpbx{
+	
+	width:90px;
+}

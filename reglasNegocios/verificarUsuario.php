@@ -66,7 +66,7 @@ while ($controlRegistros = $resultadoBuscar->fetch(PDO::FETCH_ASSOC)){
 
 				#header("location:crearSesion.php?");
 
-				header("location:../Menu.php");
+				header("location:interfazclientes.php");
 
 			}else{
 

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Registro Usuarios</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../estiloscss/resetHuevitos1A.css">
+    <link rel="stylesheet" type="text/css" href="../estiloscss/estilosCssActualizaUsuarios.css">
+    <link rel="stylesheet" type="text/css" href="../jquery/jquery-3.4.1.js">
+
+<script type="text/javascript">
+    var password;
+    var repepassword;
+
+    function comenzar(){
+
+        password = document.getElementById("contrasena");
+        repepassword = document.getElementById("repecontrasena");
+
+        document.datos_usuario.addEventListener("invalid",validar,true);
+
+        document.getElementById("registrar").addEventListener("click",enviar,false);
+
+        document.getElementById("input").addEventListener("input",validar_tiempo_real,false);
+
+
+        
+    }
+
+   
+
+    function validar(e){
+
+        var elementos = e.target;
+
+        if(elementos){
+
+        elementos.style.background = "#F5ABAB";
+
+        }
+
+    }
+
+    function enviar(){
+
+        
+
+        if(password.value !== repepassword.value){
+
+            
+            password.setCustomValidity("las contraseñas son diferentes, repitalas");
+
+            password.style.background="#F5ABAB";
+
+            repepassword.style.background="#F5ABAB";
+            
+
+            
+
+        }else{
+
+           password.setCustomValidity("");
+
+            password.style.background="white";
+
+            repepassword.style.background="white";
+
+            
+            var correcto = document.datos_usuario.checkValidity();
+
+                if(correcto){
+
+                document.datos_usuario.submit();
+                
+
+            }else{
+
+                alert("Se deben diligenciar los campos");
+            }
+            
+
+
+        }
+         
+        
+
+    }
+
+
+
+    function validar_tiempo_real(e){
+
+        var entradas = e.target;
+
+        if(entradas.validity.valid){
+
+            entradas.style.background="white";
+
+        }else{
+
+            entradas.style.background="#F5ABAB";
+        }
+
+    }
+
+    
+
+    function activarfijo(){
+
+        var telefonofijo = document.getElementById("telefonofijo");
+
+        var checkfijo = document.getElementById("checkfijo");
+
+        
+
+        if(checkfijo.checked){
+
+            telefonofijo.readOnly=false;
+
+        }else{
+
+            telefonofijo.readOnly=true;
+        }
+    }
+
+     function activarpbx(){
+
+        var pbx = document.getElementById("pbx");
+
+        var checkpbx = document.getElementById("checkpbx");
+
+        
+
+        if(checkpbx.checked){
+
+            pbx.readOnly=false;
+
+        }else{
+
+            pbx.readOnly=true;
+        }
+    }
+    
+    
+    
+    window.addEventListener("load",comenzar,false);
+
+</script>
+
+
+
+    
+</head>
+<body id="principal">
+
+    <?php 
+
+        session_start();
+
+        if(!isset($_SESSION['usuariologin'])){
+
+            header("location:../index.php");
+        }
+
+
+     ?>
+
+     <?php 
+
+        require("traerdatos.php");
+
+      ?>
+
+<header id="titulos">
+    <h1>CISoft1A</h1>
+    <h2>Actualización de Datos</h2>
+    <h3><strong><?php echo "Usuario: " . $_SESSION['usuariologin']; ?></strong></h3>
+</header>
+
+<section id="contenedor">
+			 
+	<article>
+
+        <figure id="ima1">
+        	<img src="../imagenes/huevitos1A.jpg" alt="Huevitos1A" id="imagen1">	
+        </figure>
+
+    </article>
+
+	<form action="actualizaDatos.php" method="post" id="registro" name="datos_usuario">
+		<div class="contenedortablas">	
+        <table id="tabla1">
+            <tr>
+                    <td colspan="2" id="centrar">
+                        <label class="titulosDatos">Datos de Acceso</label>
+                    </td>
+            </tr>
+
+            <tr>
+                <td><input type="hidden" value="<?php echo $id;?>" name="id"></td>
+            </tr>
+
+            <tr>
+                
+                <tr>
+                    <td>
+                        <label>Usuario:&nbsp;</label>
+                    </td>
+        
+                    <td>
+                        <input name="usuario" pattern="[A-Za-z0-9]+" id="usuario" placeholder="Ingresa Usuario" autofocus="true" minlength="6" maxlength="20" required value="<?php echo $usu; ?>">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <label>E-mail:&nbsp;</label>
+                    </td>
+                    <td>
+                        <input name="email" type="email" id="email" placeholder="e-mail" minlength="1" maxlength="50" required value="<?php echo $ema; ?>">
+                    </td>
+
+                    
+                </tr>
+                
+                
+
+            </tr>
+
+        </table>
+
+        <table id="tabla2"> 
+
+        <tr>
+            <td colspan="2" >
+                <label for="" class="titulosDatos">Datos personales</label>
+            </td>
+
+        </tr>   
+
+        <tr>
+            <td>
+                <label>Nombres:&nbsp;</label>
+            </td>
+        
+            <td>
+                <input name="nombres" type="text" id="nombres" placeholder="Ingresa Nombres"  minlength="3" maxlength="30" required value="<?php echo $nom; ?>">
+            </td>
+        
+        </tr>
+
+        <tr>
+            <td>
+                <label>Apellidos:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="apellidos" type="text" id="apellidos" placeholder="Ingresa Apellidos"  minlength="3" maxlength="30" required value="<?php echo $ape; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Cédula:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="cedula" pattern="[0-9]{6,}" id="cedula" placeholder="Ingresa Cédula"  minlength="6" maxlength="11" required value="<?php echo $ced; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Dirección:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="direccion" type="text" id="direccion" placeholder="Ingresa Dirección"  minlength="3" maxlength="100" required value="<?php echo $dir; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Cargo:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="cargo" type="text" id="cargo" placeholder="Ingresa Cargo"  minlength="3" maxlength="30" required value="<?php echo $car; ?>">
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>
+                <label>Departamento:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="departamento" type="text" id="departamento" placeholder="Ingresa Departamento"  minlength="3" maxlength="30" required value="<?php echo $dep; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label>Sexo:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input list="milista" name="sexo"  id="sexo" placeholder="Ingresa Sexo F/M"  minlength="1" maxlength="1" required value="<?php echo $sex; ?>">
+
+                <datalist id="milista">
+                    <option value="F"></option>
+                    <option value="M"></option>
+                </datalist>
+            </td>
+        </tr>
+
+
+        
+
+        </table>   
+
+        <table id="table3">
+             <tr>
+            <td colspan="3" >
+                <label for="" class="titulosDatos">Datos Telefónicos</label>
+            </td>
+
+            </tr> 
+
+            <tr>
+            <td>
+                <label>Número de Celular:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="celular" type="text" id="celular" placeholder="Ingresa Teléfono"  minlength="10" maxlength="20" required value="<?php echo $cel; ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="checkbox" name="checkfijo" id="checkfijo" class="terminos" onclick="activarfijo()"><label>&nbsp;&nbsp;&nbsp;Número Fijo:&nbsp;</label>
+            </td>
+            
+            
+            <td>
+                <input name="telefonofijo"  type="text" id="telefonofijo" placeholder="Ingresa Teléfono Fijo"  minlength="10" maxlength="20" readonly="readonly" value="<?php echo $nfi; ?>">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <input type="checkbox" name="checkpbx" id="checkpbx" class="terminos" onclick="activarpbx()" ><label>&nbsp;&nbsp;Número PBX:&nbsp;</label>
+            </td>
+            
+            <td>
+                <input name="pbx" type="text" id="pbx" placeholder="Ingresa PBX"  minlength="10" maxlength="20" readonly="readonly" value="<?php echo $pbx; ?>">
+            </td>
+        </tr>
+
+        </table> 
+
+        </div>
+        
+         
+
+        <br>
+
+        <div>
+            <input type="submit" name="registrar" value="Actualizar Datos" class="btngeneral" id="registrar">
+        
+        
+        <a href="interfazclientes.php"><button type="button" id="volver" name="volver" class="btngeneral">Volver</button></a>
+
+        
+        </div>
+        
+       
+                                 
+    </form>
+
+   
+        
+        <footer>
+            <div id="pie">Actualización de datos de Clientes</div>
+        </footer>
+       
+           
+    
+</section> 
+
+    
+
+     
+
+</body>
+ 
+</html>
