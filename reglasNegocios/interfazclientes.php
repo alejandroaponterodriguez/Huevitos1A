@@ -70,7 +70,7 @@
 				
 			
 			<div class="botones">
-				<a href="realizarpedidos.php"><input type="button" name="realizarpedidos" id="realizarpedidos" value="Realizar Pedidos"></a>
+				<a href="realizarPedidos.php"><input type="button" name="realizarpedidos" id="realizarpedidos" value="Realizar Pedidos"></a>
 			</div>
 
 			<div class="botones">
