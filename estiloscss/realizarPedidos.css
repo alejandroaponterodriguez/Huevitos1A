@@ -1,0 +1,76 @@
+#titulos{
+
+	width: 500px;
+	margin:20px auto;
+	border:1px solid black;
+	text-align: center;
+	border-radius: 10px;
+	background-image: url("../imagenes/fondoRegistro2.jpg");
+	background-size: 100%;
+	color:white;
+}
+
+h1,h2{
+	padding:2px;
+
+	margin-top:5px;
+	margin-bottom: 5px;
+
+	/*border:1px solid black;*/
+}
+#forped{
+
+	width: 500px;
+	margin:20px auto;
+	border:1px solid black;
+	border-radius: 10px;
+	background-image: url("../imagenes/fondoRegistro2.jpg");
+	background-size: 100%;
+}
+
+#contenedor{
+
+	width: 450px;
+	margin:20px auto;
+	
+}
+td{
+	padding: 2px;
+	color:white;
+	
+}
+.alineacion{
+	text-align: right;
+	font-size: 20px;
+}
+.ancho{
+
+	width: 250px;
+	height: 20px;
+	padding-left: 5px;
+}
+#direccion{
+
+	resize: none;
+	max-width:253px;
+}
+
+.sepad{
+
+	margin-right:10px;
+	width: 130px;
+	font-size: 16px;
+}
+.sepai{
+
+	margin-left:10px;
+	width: 120px;
+	font-size: 16px;
+}
+.centrar{
+
+	padding-top: 10px;
+	width: 270px;
+	margin:auto;
+	
+}
