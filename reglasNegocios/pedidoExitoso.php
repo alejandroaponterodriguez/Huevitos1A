@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Resultado de Pedido</title>
+	<style>
+		
+	</style>
 </head>
 <body>
 	<?php 

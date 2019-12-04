@@ -72,6 +72,7 @@
 
 
 		#llenar la tabla de Pedidos (tblpedido)
+		date_default_timezone_set('America/Bogota');//Determina la hora fija de ameria con bogota
 
 		$fecha = date("d-m-Y",$time);
 		$hora = date("h:i:s",$time);
@@ -149,10 +150,6 @@
 
 		$resultadofacpro->execute();
 
-
-
-
-		
 
 		$resultadoproducto->closeCursor();
 		$resultadofacpro->closeCursor();
