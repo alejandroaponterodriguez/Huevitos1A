@@ -53,7 +53,7 @@
 
 		echo "<table><tr><td>";
 		echo "<h1>CISOFT1A</h1><h2>No se puedo actualizar la contraseña</h2></td></tr><tr><td>";
-		echo "<a href='interfazclientes.php'><input type='button' value='Volver'></a></td></tr>";
+		echo "<a href='interfazclientes.php'><input type='button' value='← Volver'></a></td></tr>";
 		echo "</table>";
 
 	 ?>

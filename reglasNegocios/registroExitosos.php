@@ -24,7 +24,7 @@
 		<h1>Registro Exitoso</h1>
 		
 		
-		<input type="submit" name="volver" value="Volver">
+		<input type="submit" name="volver" value="← Volver">
 
 	</form>
 

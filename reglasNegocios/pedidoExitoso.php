@@ -25,7 +25,7 @@
 	 		<h1>Pedido Generado Exitosamente!!</h1>
 	 	</tr>
 	 	<tr>
-	 		<a href="interfazclientes.php"><input type="button" value="Volver"></a>
+	 		<a href="interfazclientes.php"><input type="button" value="← Volver"></a>
 	 	</tr>
 	 </table>
 	

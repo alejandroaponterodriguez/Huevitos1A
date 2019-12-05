@@ -371,7 +371,7 @@
             <input type="submit" name="registrar" value="Actualizar Datos" class="btngeneral" id="registrar">
         
         
-        <a href="interfazclientes.php"><button type="button" id="volver" name="volver" class="btngeneral">Volver</button></a>
+        <a href="interfazclientes.php"><button type="button" id="volver" name="volver" class="btngeneral">← Volver</button></a>
 
         
         </div>

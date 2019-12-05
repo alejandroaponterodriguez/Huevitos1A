@@ -50,7 +50,7 @@
 
 		echo "<table><tr><td>";
 		echo "<h1>CISOFT1A</h1><h2>Actualización Exitosa!!</h2></td></tr><tr><td>";
-		echo "<a href='../index.php'><input type='button' value='Volver'></a></td></tr>";
+		echo "<a href='../index.php'><input type='button' value='← Volver'></a></td></tr>";
 		echo "</table>";
 
 	 ?>

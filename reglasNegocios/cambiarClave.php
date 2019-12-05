@@ -55,7 +55,7 @@
 		        	<td><a href="actualizarcontrasenna.php"><input type="submit" id="clave" name="clave" value="Actualizar Contraseña" class="btncontrol"></a>
 					</td>
 					<td>
-						<a href="interfazclientes.php"><button type="button" name="volver" class="btncontrol">Volver</button></a>
+						<a href="interfazclientes.php"><button type="button" name="volver" class="btncontrol">← Volver</button></a>
 					</td>
 		        </tr>
 

@@ -26,7 +26,7 @@
 		<h1>Error al Registrarse</h1>
 		<p>Para registrar, se debe registrar todos los datos!...</p>
 		
-		<input type="submit" name="volver" value="Volver">
+		<input type="submit" name="volver" value="← Volver">
 
 	</form>
 

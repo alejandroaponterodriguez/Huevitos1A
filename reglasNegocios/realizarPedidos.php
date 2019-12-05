@@ -88,7 +88,7 @@
 			</tr>
 
 			<tr>
-				<td  colspan="2"><div class="centrar"><input type="submit" name="enviarPedido" id="enviarPedido" value="Generar Pedido" class="sepad tama"><a href="interfazclientes.php"><input type="button" id="volver" value="Volver" class="sepai tama"></a></div></td>
+				<td  colspan="2"><div class="centrar"><input type="submit" name="enviarPedido" id="enviarPedido" value="Generar Pedido" class="sepad tama"><a href="interfazclientes.php"><input type="button" id="volver" value="← Volver" class="sepai tama"></a></div></td>
 				
 			</tr>
 			

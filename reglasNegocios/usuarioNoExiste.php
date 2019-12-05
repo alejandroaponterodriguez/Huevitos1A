@@ -25,7 +25,7 @@
 		<h1>El Usuario no se encuentra registrado.</h1>
 		
 		
-		<input type="submit" name="volver" value="Volver">
+		<input type="submit" name="volver" value="← Volver">
 
 	</form>
 	
