@@ -118,7 +118,7 @@
 		#************************************************************************************
 		#Ingresando valores al tabla factura.
 
-		$sqlfactura = "INSERT INTO tblfactura (ID_VENDEDOR,ID_PEDIDO,TIPO,PRECIO_TOTAL,HORA,FECHA,CANTIDAD_FACTURA,FORMA_PAGO,ESTADO_FACTURA,DIRECCION_ENTREGA,NOMBRE_PRODUCTO) VALUES(:idv,:idp,:tip,:pret,:hor,:fec,:can,:forp,:est,:dire,:nomp)";
+		$sqlfactura = "INSERT INTO tblfactura (ID_VENDEDOR,ID_PEDIDO,TIPO,PRECIO_TOTAL,HORA,FECHA,CANTIDAD_FACTURA,FORMA_PAGO,ESTADO_FACTURA,DIRECCION_ENTREGA,NOMBRE_PRODUCTO,ID_CLIENTE) VALUES(:idv,:idp,:tip,:pret,:hor,:fec,:can,:forp,:est,:dire,:nomp,:idc)";
 
 		$resultadofac = $conexion->prepare($sqlfactura);
 
@@ -133,6 +133,7 @@
 		$resultadofac->bindValue(":est",$estado);
 		$resultadofac->bindValue(":dire",$direccion);
 		$resultadofac->bindValue(":nomp",$lista);
+		$resultadofac->bindValue(":idc",$id_cliente);
 
 		$resultadofac->execute();
 

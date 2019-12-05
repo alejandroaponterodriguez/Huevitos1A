@@ -1,0 +1,52 @@
+#titulos{
+	width: 820px;
+	margin:20px auto;
+	border:1px solid black;
+	text-align: center;
+	border-radius: 10px;
+	background-image: url("../imagenes/fondoRegistro2.jpg");
+	background-size: 100%;
+	color:white;
+}
+#tablas{
+
+	width: 820px;
+	margin:20px auto;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-image: url("../imagenes/fondoRegistro2.jpg");
+	background-size: 100%;
+}
+td{
+	border: 1px solid black;
+	padding: 5px;
+
+}
+.tamano{
+	width: 800px;
+	margin:10px auto;
+}
+.bordes{
+
+	border:none;
+	text-align: center;
+
+
+}
+#datos{
+	background-color: white;
+}
+#datosproductos{
+	background-color: white;
+}
+h1,h2,h3{
+	margin:0;
+}
+#centrar{
+	text-align: center;
+}
+
+.btn{
+	width: 150px;
+	height: 30px;
+}
