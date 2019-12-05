@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Registro de Productos</title>
-	<link rel="stylesheet" href="../estiloscss/registroProductos.css">
+	<link rel="stylesheet" href="../estiloscss/verProductos.css">
 </head>
 <body>
 
@@ -29,12 +29,12 @@
 	 	
 	 </div>
 
-	 <table>
+	 <table id="contenedor">
 		<tr>
-	 		<td>N°</td>
-	 		<td>Nombre del Producto</td>
-	 		<td>Precio</td>
-	 		<td>Descripción</td>
+	 		<td class="relleno">N°</td>
+	 		<td class="relleno">NOMBRE DEL PRODUCTO</td>
+	 		<td class="relleno">PRECIO</td>
+	 		<td class="relleno">DESCRIPCIÓN</td>
 	 	</tr>
 	 	<?php 
 
@@ -42,8 +42,8 @@
 	 		
 	 		echo "<tr><td>" . $control['ID_PRODUCTO'] . "</td>";
 	 		echo "<td>" . $control['NOMBRE_PRODUCTO'] . "</td>";
-	 		echo "<td>" . round($control['PRECIO'],3) . "</td>";
-	 		echo "<td><textarea name='' id='' cols='40' rows='5' readOnly='readOnly'>" .  $control['DESCRIPCION'] . "</textarea></td></tr>";
+	 		echo "<td>$" . round($control['PRECIO'],3) . "</td>";
+	 		echo "<td id='descripcion'>" .  $control['DESCRIPCION'] . "</td></tr>";
 
 	 		}
 	 		
@@ -54,7 +54,7 @@
 	 	 ?>
 	 	
 	 	<tr>
-	 		<td colspan="4"><a href="interfazclientes.php"><input type="button" value="Volver"></a></td>
+	 		<td colspan="4"><a href="interfazclientes.php"><input type="button" value="← Volver" id="volver"></a></td>
 	 	</tr>
 	 	
 	 </table>
