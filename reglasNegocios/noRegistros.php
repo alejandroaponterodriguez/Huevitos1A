@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Resultado de Pedido</title>
-	<link rel="stylesheet" href="../estiloscss/pedidoExitoso.css">
+	<title>No existe facturas</title>
+	<link rel="stylesheet" href="../estiloscss/noRegistro.css">
 </head>
 <body>
+
 	<?php 
 
 		session_start();
@@ -20,7 +21,7 @@
 
 	 <table id="tabla">
 	 	<tr>
-	 		<td><h1>Pedido Generado Exitosamente!!</h1></td>
+	 		<td><h1>El cliente no tiene facturas asociadas!!</h1></td>
 	 	</tr>
 	 	<tr>
 	 		<td><a href="interfazclientes.php"><input type="button" value="← Volver" id="volver"></a></td>

@@ -45,6 +45,35 @@
 
 		$id_cliente = $controlid["ID_CLIENTE"];
 
+		#Verificar si existe una factura al menos una
+
+		$sqlclifac = "SELECT COUNT(ID_CLIENTE) AS NUMEROFAC FROM tblfactura WHERE ID_CLIENTE=:idc";
+
+		$resulclifac = $conexion->prepare($sqlclifac);
+
+		$resulclifac->bindValue(":idc",$id_cliente);
+
+		$resulclifac->execute();
+
+		$controlclifac = $resulclifac->fetch(PDO::FETCH_ASSOC);
+
+		$conteo = intval($controlclifac['NUMEROFAC']);
+
+		if($conteo==0){
+
+
+			$resultadoId->closeCursor();
+			
+			$resultadoId=null;
+			
+			$conexion=null;
+
+			header("location:noRegistros.php");
+
+		}
+
+
+
 
 
 		#CONSULTA GENERAL DE LA FACTURA.

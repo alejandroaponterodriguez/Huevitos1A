@@ -113,12 +113,12 @@
 	 	
 
 	 		<tr>
-	 			<td>CANTIDAD</td>
-	 			<td>PRODUCTO</td>
-	 			<td>DRESCRIPCIÓN</td>
-	 			<td>PRECIO UNITARIO</td>
-	 			<td>IVA :" . $iva . " </td>
-	 			<td>PRECIO TOTAL</td>
+	 			<td class='centrar'>CANTIDAD</td>
+	 			<td class='centrar'>PRODUCTO</td>
+	 			<td class='centrar'>DRESCRIPCIÓN</td>
+	 			<td class='centrar'>PRECIO UNITARIO</td>
+	 			<td class='centrar'>IVA :" . $iva . " </td>
+	 			<td class='centrar'>PRECIO TOTAL</td>
 	 		</tr>
 	 		<tr>
 	 			<td> " . $cant_fac . " </td>
