@@ -78,7 +78,7 @@
 			</div>
 
 			<div class="botones">
-				<a href="verfacturas.php"><input type="button" name="verfacturas" id="verfacturas" value="Facturas"></a>
+				<a href="verFacturaCliente.php"><input type="button" name="verfacturas" id="verfacturas" value="Facturas"></a>
 			</div>
 
 			<div class="botones" id="contbtnpbx">
