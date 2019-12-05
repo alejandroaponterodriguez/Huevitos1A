@@ -74,7 +74,7 @@
 			</div>
 
 			<div class="botones">
-				<a href="productos.php"><input type="button" name="productos" id="productos" value="Ver productos"></a>
+				<a href="verProductos.php"><input type="button" name="productos" id="productos" value="Ver productos"></a>
 			</div>
 
 			<div class="botones">
