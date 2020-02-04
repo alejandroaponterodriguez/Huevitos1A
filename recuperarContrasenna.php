@@ -6,87 +6,101 @@
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="estiloscss/estilosCssRecuperarcontrasena.css">
 
-
-<script>
-  function comenzar(){
-
-    document.getElementById('volver').addEventListener("click",volver,false);
-
-
-  }
-
-  function volver(){
-
-    document.location.href="index.php";
-  }
-
-  window.addEventListener("load",comenzar,false);
-
-</script>
-
-
 </head>
 
 <body>
 
-  <h1>HUEVITOS 1A CiSoft1A</h1>
-  <h2>Recuperar Contraseña</h2>
+  <?php 
 
-<section id="contenedor">
+    if(isset($_POST['submit'])){
 
-    <figure id="ima1">
-  		<img src="imagenes/huevitos1A.jpg" alt="Huevitos1A" id="imagen1">	
-  	</figure>
-  					
-  	<form action="consulta.php" method="post">
-                 
-      <table>
-        
-        <tr>
-          <td><label>Número De Identificación:</label></td>
-          <td>
-            <input name="btnidentificacion" type="text" id="btnidentificacion" placeholder="Numero De Identificacion" required="" autofocus="true" class="botones">
-          </td>
-        </tr>
-        
-        <tr>
-          <td><label>Correo Electrónico:</label></td>
-          <td>
-            <input name="email" type="email" id="email" placeholder="Correo de verificacion" required="" class="botones">
-          </td>
-        </tr>
-        
-        <tr>
-          <td id="entradas" colspan="2">
-            
-            
-              
-              <input type="submit" id="submit" name="submit" value="Validar" class="btncontrol">
-              <input type="button" name="volver" id="volver" value="Volver" class="btncontrol">
-
-            
-             
-
-          </td>
+        if (isset($_POST['usuario']) && isset($_POST['email'])) {
           
-        </tr>
-        
+            $usuario = htmlentities(addslashes($_POST['usuario']),ENT_QUOTES);
+            $email = htmlentities(addslashes($_POST['email']),ENT_QUOTES);
 
-      </table>
-         
-      
-      
-      <br>
-        
 
-      </form>
+            try {
 
-      <article id= "pie"> 
+              $conexion = new PDO("mysql:host=localhost; dbname=cisoft1a","root","");
+              $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+              $conexion->exec("SET CHARACTER SET UTF8");
 
-        <p>Recuperación de contraseña</p>
+              $sqlVerificar = "SELECT USUARIO, EMAIL FROM tblclave WHERE USUARIO=:usu AND EMAIL=:emal";
 
-      </article>
+              $controlVerificacion = $conexion->prepare($sqlVerificar);
 
-</section>
+              $controlVerificacion->bindValue(":usu",$usuario);
+              $controlVerificacion->bindValue(":emal",$email);
+
+              $controlVerificacion->execute();
+
+              if (($resultado=$controlVerificacion->fetchAll(PDO::FETCH_ASSOC))>0) {
+
+                $nuevaContrasena = rand();
+                $nuevaContrasena .=$usuario;
+
+                $restablecerContrasena = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
+
+                $sqlNuevaContra = "UPDATE tblclave SET CONTRASENNA=:nueva WHERE USUARIO=:usu";
+
+                $nuevoCambio = $conexion->prepare($sqlNuevaContra);
+
+                $nuevoCambio->bindValue(":nueva",$restablecerContrasena);
+                $nuevoCambio->bindValue(":usu",$usuario);
+
+                $nuevoCambio->execute();
+
+                $nuevoCambio->closeCursor();
+
+                print "Entrando la funcion mail";
+
+                  $mail="huevitos1a@gmail.com";
+                  $asunto = "Recuperación Contraseña";
+
+                  $mensaje = "La contraseña restablecida CISOFT1A es:" . $nuevaContrasena . " Es recomendable que la cambie una vez ingrese a la plataforma.\n";
+                  $headers = "MIME-VERSION:1.0\r\n";
+                  $headers .="Content-type:text/html;charset=utf-8\r\n";
+                  $headers .="From:Huevitos1A <" . $mail . ">\r\n";
+
+                  $texto = mail($email,$asunto,$mensaje,$headers);
+
+                  echo $texto;
+
+                  if($texto){
+
+                      echo "<script>alert('Contraseñar restablecida');</script>";
+
+                      header("location:recuperarContrasenna.php");
+
+                  }else{
+
+                    echo "<script>alert('No se puedo restablecer la contraseña');</script>";
+                    header("location:recuperarContrasenna.php");
+                  }
+
+                
+              }else{
+
+                echo "<script>alert('No se encontraron datos registrados');</script>";
+                header("location:recuperarContrasenna.php");
+              }
+              
+            } catch (Exception $e) {
+              
+              die("Error: " . $e->getMessage() . " " . $e->getLine());
+            }
+
+
+        }
+
+
+    }else{
+
+      include_once("reglasNegocios/formularioRecuperacion.html");
+    }
+
+   ?>
+
 </body>
 </html>

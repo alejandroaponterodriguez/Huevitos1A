@@ -46,7 +46,7 @@
 						<br>
 						<a href="recuperarContrasenna.php">Olvido su Contraseña</a>
 						<br>
-						<a href="#">Privacy Policy</a>
+						<a href="reglasNegocios/politicasHuevitos1a.php">Privacy Policy</a>
 					</td>
 				</tr>
 

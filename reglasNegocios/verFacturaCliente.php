@@ -76,6 +76,18 @@
 					
 		 
 		echo "<table id='datos' class='tamano'>
+
+			<tr>
+	 			<td colspan='4' id='centrar'>
+
+					<p><h3>Huevitos 1A</h3></p>
+					<p>Nit: XXXXXXX-X</p>
+					<p>Dirección: Municipio de Caldas Antioquia Telefono: 057 XXXXXX</p>
+
+	 			</td>
+	 			<td colspan='2' id='centrar'><img src='../imagenes/huevitos1A.jpg' width='130px'></td>
+	 		</tr>
+
 	 		<tr>
 	 			<td colspan='6' id='centrar'>FACTURA GENERADA N° " . $contador . " </td>
 	 			

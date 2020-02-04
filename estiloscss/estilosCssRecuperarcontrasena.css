@@ -1,46 +1,51 @@
 
-h1, h2{
+.titulos{
 	text-align: center;
-	color:#6CBF0B;
 	font-family:"Arial";
-	font-size:25px;
+	font-size:20px;
+	color:white;
 }
 
 #contenedor{
 
 	border-radius:20px;
 	border:1px solid black;
-	margin:8px auto;
-	background-color: #6CBF0B;
+	margin:40px auto;
+	background-image: url("../imagenes/fondoRegistro2.jpg");
+	background-size: 100%;
 	width: 450px;
-	height:350px;
+
 }
 
 
 table{
 
-
-	border:1px solid black;
+	width: 400px;
+	border:1px solid white;
 	margin:0 auto;
 	padding-top:5px;
 	padding-bottom: 5px;
-	background-color:#47F163;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	
 }
 
 td{
 
 	padding:5px;
+	color:white;
 	
 }
 
-#entradas{
+.entradas{
 
 	text-align: center;
+
 }
 
 .btncontrol{
 
-	width:80px;
+	width:120px;
 	font-size:16px;
 
 }
@@ -48,7 +53,7 @@ td{
 
 #ima1{
 
-	margin:20px auto;
+	margin:10px auto;
 	border:1px solid black;
 	width:112px;
 	height: 99px;
@@ -68,7 +73,13 @@ form{
 .botones{
 
 	width:200px;
+	height: 20px;
 	margin:0 auto;
+	padding-left: 5px;
 
+}
+.label{
+
+	text-align: right;
 }
 
