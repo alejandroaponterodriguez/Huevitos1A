@@ -109,7 +109,7 @@
 	 		
 	 		<td id="asuntopqr">Asunto:</td>
 
-	 		<td id="btnasunto" colspan="2"><input id="asunto" type="text" maxlength="40" name="asunto"></td>
+	 		<td id="btnasunto" colspan="2"><input id="asunto" type="text" maxlength="500" name="asunto"></td>
 	 	</tr>
 	 	<tr>
 	 		<td colspan="3">Redacte la P.Q.R. de forma clara: Tiene un maximo de 5000 caracteres</td>
