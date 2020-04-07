@@ -169,7 +169,7 @@
 	 	?>
 	 	<table id="botones" class="tamano">
 	 	<tr>
-	 		<td class="bordes"><a href=""><input type="button" value="Imprimir" class="btn"></a></td>
+	 		<td class="bordes"><a href="javascript:window.print()"><input type="button" value="Imprimir" class="btn"></a></td>
 	 		<td class="bordes"><a href="interfazclientes.php"><input type="button" value="← Volver" class="btn"></a></td>
 	 	</tr>
 	 	</table>
